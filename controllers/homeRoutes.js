@@ -35,3 +35,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Retrieves user
+router.get('/user', async (req, res) => {
+    try{
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: {exclude: ['password']},
+            include: [{model: Post}],
+        });
+
+        const user = userData.get({plain: true});
+        // Uncomment & include view name once written
+        // res.render('profile', {
+        //     ...user,
+        //     logged_in: true
+        // });
+    }
+})
+
