@@ -77,3 +77,5 @@ router.get('/login', (req, res) => {
     // Uncomment & include view name once written
     // res.render('login');
   });
+
+  module.exports = router;
