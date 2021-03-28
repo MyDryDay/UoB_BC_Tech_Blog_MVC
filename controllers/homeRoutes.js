@@ -49,6 +49,31 @@ router.get('/user', async (req, res) => {
         //     ...user,
         //     logged_in: true
         // });
+    } catch (err) {
+        res.status(500).json(err);
     }
-})
+});
 
+// Retrieves signup page
+router.get('/signup', (req, res) => {
+    // If logged in the redirect to profile/dashboard
+    if (req.session.logged_in) {
+        res.redirect('/user');
+        return;
+    }
+  
+    // Uncomment & include view name once written
+    // res.render('signup');
+});
+
+// Retrieves login page
+router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect the request to profile/dashboard
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+    }
+  
+    // Uncomment & include view name once written
+    // res.render('login');
+  });
