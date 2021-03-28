@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 
         // Uncomment & include view name once written
         // res.render('homepage', { 
-        //     blogs, 
+        //     posts, 
         //     logged_in: req.session.logged_in 
         // });
 
