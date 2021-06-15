@@ -16,21 +16,13 @@ Post.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
-    },
-    filename: {
-      type: DataTypes.STRING,
-      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,

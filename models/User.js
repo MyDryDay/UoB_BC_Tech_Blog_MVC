@@ -33,9 +33,6 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        isInt: true,
-        isLowercase: true,
-        isUppercase: true,
       },
     },
   },
