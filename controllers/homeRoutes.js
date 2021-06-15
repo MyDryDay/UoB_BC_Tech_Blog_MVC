@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
-
 // Add Authentication here once written
 
-// To retrieve all blog posts & comments
+// Retrieve all posts & associated comments
 router.get('/', async (req, res) => {
-    try{
+    try {
         const postData = await Post.findAll({
             include: [
+                // Get all comments on post
                 {
                     model: Comment,
                     include: {
@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
                         attributes: ['name'],
                     }
                 },
+                // Get user that authored the post
                 {
                     model: User,
                     attributes: ['name'],
@@ -22,7 +23,8 @@ router.get('/', async (req, res) => {
             ],
         });
 
-        const posts = postData.map((post) => post.get({plain: true}));
+        // Serialize data so templating engine can read it
+        const posts = postData.map((post) => post.get({ plain: true }));
 
         // Uncomment & include view name once written
         // res.render('homepage', { 
@@ -35,20 +37,57 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Retrieves user
-router.get('/user', async (req, res) => {
-    try{
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: {exclude: ['password']},
-            include: [{model: Post}],
+// Retrieve post by ID
+router.get('/posts/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                // Get all comments on post
+                {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['name'],
+                    }
+                },
+                // Get user that authored post
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
         });
 
-        const user = userData.get({plain: true});
+        const post = postData.get({ plain: true });
+
+        // Uncomment & include view name once written
+        // res.render('post', {
+        //     ...post,
+        //     logged_in: req.session.logged_in
+        // });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Retrieves user
+router.get('/profile', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            // Exclude value for password
+            attributes: { exclude: ['password'] },
+            // Include all of the user's associated posts
+            include: [{ model: Post }],
+        });
+
+        const user = userData.get({ plain: true });
         // Uncomment & include view name once written
         // res.render('profile', {
         //     ...user,
         //     logged_in: true
         // });
+
     } catch (err) {
         res.status(500).json(err);
     }
@@ -58,7 +97,7 @@ router.get('/user', async (req, res) => {
 router.get('/signup', (req, res) => {
     // If logged in the redirect to profile/dashboard
     if (req.session.logged_in) {
-        res.redirect('/user');
+        res.redirect('/profile');
         return;
     }
   
@@ -77,5 +116,35 @@ router.get('/login', (req, res) => {
     // Uncomment & include view name once written
     // res.render('login');
   });
+
+
+router.get('posts/edit/:id', withAuth, async (req, res) => {
+    try {
+        const editPost = await Post.findByPk(req.params.id, {
+            // Include user that authored the post
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
+        });
+
+        if (!editPost) {
+            res.status(404).json({ message: 'No post found with this id.' });
+            return;
+        }
+
+        const edit = editPost.get({ plain: true })
+        // Uncomment & include view name once written
+        // res.render('edit', {
+        //     edit,
+        //     logged_in: req.session.logged_in
+        // });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
   module.exports = router;
