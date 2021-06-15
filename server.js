@@ -14,9 +14,13 @@ const PORT = process.env.PORT || 3001;
 // Enables use of helper functions
 const hbs = exphbs.create({helpers});
 
+// Initialises a user session
 const sess = {
     secret: 'secret',
-    cookie: {},
+    cookie: {
+        // Sets max age of user session - logs user out after 15 minutes
+        maxAge: 90000
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
@@ -32,8 +36,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// Uncomment if delivering static files, see line 5 
-// app.use(express.static(path.join(__dirname, '<folder_name>')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
