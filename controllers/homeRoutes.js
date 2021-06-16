@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
-// Add Authentication here once written
+const withAuth = require('../utils/withAuth');
 
 // Retrieve all posts & associated comments
 router.get('/', async (req, res) => {
