@@ -54,17 +54,17 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// // Log a user out
-// router.post('/logout', (req, res) => {
-//     // If user logged in, destroy the session
-//     if (req.session.logged_in) {
-//         req.session.destroy(() => {
-//             res.status(204).end();
-//         });
-//     } else {
-//         // Else throw err & end request
-//         res.status(404).end();
-//     }
-// });
+// Log a user out
+router.post('/logout', (req, res) => {
+    // If user logged in, destroy the session
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        // Else throw err & end request
+        res.status(404).end();
+    }
+});
 
-// module.exports = router;
+module.exports = router;
