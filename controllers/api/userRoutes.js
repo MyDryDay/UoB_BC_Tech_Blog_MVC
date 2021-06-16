@@ -37,14 +37,14 @@ router.post('/login', async (req, res) => {
         const validPass = userData.checkPass(req.body.password);
 
         // Check if password is correct
-        if(!validPass) {
+        if (!validPass) {
             res.status(404).json({ message: 'Invalid password. Please try again.' });
             return;
         }
 
         // Save the session
         req.session.save(() => {
-            req.session.user_id = userData.isSoftDeleted;
+            req.session.user_id = userData.id;
             req.session.logged_in = true;
 
             res.status(200).json({ user: userData, message: 'Succesfully logged in!' });
@@ -53,3 +53,18 @@ router.post('/login', async (req, res) => {
         res.status(404).json(err);
     }
 });
+
+// // Log a user out
+// router.post('/logout', (req, res) => {
+//     // If user logged in, destroy the session
+//     if (req.session.logged_in) {
+//         req.session.destroy(() => {
+//             res.status(204).end();
+//         });
+//     } else {
+//         // Else throw err & end request
+//         res.status(404).end();
+//     }
+// });
+
+// module.exports = router;
