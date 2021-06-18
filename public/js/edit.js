@@ -5,7 +5,7 @@ const editHandler = async (e) => {
     const description = document.querySelector("input[name='edit-body']").value;
     const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
-    const res = await fetch(`/api/blogs/edit/${id}`, {
+    const res = await fetch(`/api/posts/edit/${id}`, {
         method: 'PUT',
         body: JSON.stringify({ name, description }),
         headers: { 'Content-Type': 'application/json' }
