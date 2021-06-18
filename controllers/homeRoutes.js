@@ -26,11 +26,10 @@ router.get('/', async (req, res) => {
         // Serialize data so templating engine can read it
         const posts = postData.map((post) => post.get({ plain: true }));
 
-        // Uncomment & include view name once written
-        // res.render('homepage', { 
-        //     posts, 
-        //     logged_in: req.session.logged_in 
-        // });
+        res.render('home', { 
+            posts, 
+            logged_in: req.session.logged_in 
+        });
 
     } catch (err) {
         res.status(500).json(err);
@@ -60,11 +59,10 @@ router.get('/posts/:id', async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        // Uncomment & include view name once written
-        // res.render('post', {
-        //     ...post,
-        //     logged_in: req.session.logged_in
-        // });
+        res.render('post', {
+            ...post,
+            logged_in: req.session.logged_in
+        });
 
     } catch (err) {
         res.status(500).json(err);
@@ -82,11 +80,11 @@ router.get('/profile', withAuth, async (req, res) => {
         });
 
         const user = userData.get({ plain: true });
-        // Uncomment & include view name once written
-        // res.render('profile', {
-        //     ...user,
-        //     logged_in: true
-        // });
+
+        res.render('profile', {
+            ...user,
+            logged_in: true
+        });
 
     } catch (err) {
         res.status(500).json(err);
@@ -101,8 +99,7 @@ router.get('/signup', (req, res) => {
         return;
     }
   
-    // Uncomment & include view name once written
-    // res.render('signup');
+    res.render('signup');
 });
 
 // Retrieves login page
@@ -113,8 +110,7 @@ router.get('/login', (req, res) => {
         return;
     }
   
-    // Uncomment & include view name once written
-    // res.render('login');
+    res.render('login');
   });
 
 
@@ -136,11 +132,11 @@ router.get('posts/edit/:id', withAuth, async (req, res) => {
         }
 
         const edit = editPost.get({ plain: true })
-        // Uncomment & include view name once written
-        // res.render('edit', {
-        //     edit,
-        //     logged_in: req.session.logged_in
-        // });
+
+        res.render('edit', {
+            edit,
+            logged_in: req.session.logged_in
+        });
 
     } catch (err) {
         res.status(500).json(err);
