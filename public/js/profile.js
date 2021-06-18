@@ -22,7 +22,9 @@ const postHandler = async (e) => {
 const deleteHandler = async (e) => {
     if (e.target.hasAttribute('data-id')) {
         const id = e.target.getAttribute('data-id');
-        const res = await fetch(`/api/posts/${id}`);
+        const res = await fetch(`/api/posts/${id}`, {
+            method: 'DELETE'
+        });
 
         if (res.ok) {
             document.location.replace('/profile');
