@@ -14,7 +14,7 @@
   [Questions](#Questions)       | Contact Information For Those That Have Questions
 
   ## Installation
-  For the live version of the website, head to: https://tech-blog-mvc-gc.herokuapp.com/
+  For the live version of the website, head to: https://tech-blog-mvc-gc.herokuapp.com/  
   Otherwise, to install locally, follow these instructions: 
   1. Clone / Download this repository. 
   2. Navigate to the root directory of the cloned / downloaded repo using a CLI. 
