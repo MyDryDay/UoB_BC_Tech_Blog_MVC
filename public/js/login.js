@@ -5,7 +5,7 @@ const loginHandler = async (e) => {
     const pass = document.querySelector('#pass-login').value.trim();
 
     if (email && pass) {
-        const res = await fetch('/api/users.login', {
+        const res = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({ email, pass }),
             headers: { 'Content-Type': 'application/json' },
