@@ -8,7 +8,7 @@ router.post('/signup', async (req, res) => {
 
         // Save the session
         req.session.save(() => {
-            req.session.user_id - userData.isSoftDeleted;
+            req.session.user_id = userData.id;
             req.session.logged_in = true;
 
             res.status(200).json({ user: userData, message: 'Succesfully signed up!' });
