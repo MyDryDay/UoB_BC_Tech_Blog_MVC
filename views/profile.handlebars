@@ -1,0 +1,49 @@
+<div class='row'>
+    <div class='col-auto mx-2 text-white p-3 rounded'>
+        <h2>Welcome back, {{name}}!</h2>
+    </div>
+</div>
+
+<div class='row mt-4'>
+    <div class='col-md-5 mx-2 text-white p-3'>
+        <h3>Author a new post: </h3>
+
+        <form class='form new-blog-form'>
+            <div class='form-group'>
+                <label for='post-title'>Title: </label>
+                <br>
+                <input class='form-input' type='text' id='post-title' name='post-title' />
+            </div>
+
+            <div class='form-group'>
+                <label for='post-body'>Post: </label>
+                <br>
+                <textarea class='form-input' id='post-body' name='post-body'></textarea>
+            </div>
+
+            <div class='form-group'>
+                <button type='submit' class='btn btn-success'>Submit Post</button>
+            </div>
+        </form>
+    </div>
+
+    {{#if posts.length}}
+    <div class='col-md-6 mx-2 p-3 post-list'>
+        <h3 class='text-secondary'>Previous posts: </h3>
+
+        {{#each posts as |post|}}
+        <div class='row mb-2'>
+            <div class='col-md-8'>
+                <h4> <a href='/posts/{{post.id}}'>{{post.name}}</a> </h4>
+            </div>
+            <div class='col-md-4' id='delete-post'>
+                <button class='btn btn-sm btn-danger' id='delete-btn' data-id='{{post.id}}'></button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+</div>
+
+<script src='../public/js/profile.js'></script>

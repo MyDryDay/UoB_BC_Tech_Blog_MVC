@@ -1,0 +1,46 @@
+<div class='row'>
+    <div class='col-md-8 mx-2 p-3'>
+        <h2>
+            {{name}}
+
+            {{#if logged_in}}
+            <a href='/blogs/edit/{{id}}'> <button class='btn btn-sm btn-success float-right' id='edit-btn' data-id='{{id}}'></button> </a>
+            {{/if}}
+        </h2>
+
+        <div class='row'>
+            <div class='col-auto'>
+                <p class='text-secondary'>{{description}}</p>
+            </div>
+        </div>
+
+
+    </div>
+
+    {{#if logged_in}}
+    <div class='col-md-3 mx-2 text-white p-3'>
+        <h3>Share your thoughts, add a comment: </h3>
+
+        <form class='form new-comment-form'>
+            <div class='form-group'>
+                <label for='comment-body'>Comment: </label>
+                <br>
+                <textarea class='form-input' id='comment-body' name='comment-body'></textarea>
+            </div>
+            <div class='form-group'>
+                <button type='submit' class='btn btn-dark'>Add Comment</button>
+            </div>
+        </form>
+    </div>
+    {{/if}} 
+</div>
+
+<div class='row'>
+    <div class='col-md-8 mx-2 bg-dark'>
+        <p class='text-secondary pt-2 text-right'>published by {{user.name}} on {{format_date date_created}}</p>
+    </div>
+</div>
+
+{{> comments comments}}
+
+<script src='../public/js/comment.js'></script>
