@@ -12,6 +12,14 @@
         <p class='post-text'>{{description}}</p>
     </div>
 
+    <section>
+        {{#each comment}}
+        <div class='row p-3'>
+            <p>text</p>
+        </div>
+        {{/each}}
+    </section>
+
     {{#if logged_in}}
     <div class='col-md-3 mx-2 text-white p-3'>
         <h3 class='title-text'>Share your thoughts, add a comment: </h3>
@@ -30,6 +38,6 @@
     {{/if}} 
 </div>
 
-{{> comment comment}}
+{{> comment comments}}
 
 <script src='/js/comment.js'></script>

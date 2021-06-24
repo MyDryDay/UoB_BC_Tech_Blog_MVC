@@ -40,6 +40,7 @@ textarea {
 .post-container {
     background-color: #1c1c1c;
     border-radius: 10px;
+    margin-bottom: 5%;
 }
 
 .title-text {
@@ -117,6 +118,20 @@ textarea {
 
 .delete-btn:hover {
     background-color: #88d9e6;
+}
+
+.comment-container {
+    background-color: #1c1c1c;
+    margin-bottom: 5%;
+    border-radius: 10px;
+}
+
+.comment-text {
+    color: #8b8bae;
+}
+
+.comment-author {
+    color: #8b8bae;
 }
 
 /* p {
