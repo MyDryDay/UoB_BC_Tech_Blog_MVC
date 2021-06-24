@@ -37,5 +37,5 @@ const deleteHandler = async (e) => {
 document.querySelector('.new-blog-form')
         .addEventListener('submit', postHandler);
 
-document.querySelector('.post-list')
+document.querySelector('.delete-btn')
         .addEventListener('click', deleteHandler);

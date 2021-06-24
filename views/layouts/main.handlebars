@@ -15,10 +15,10 @@
     {{!-- Custom CSS stylesheet --}}
     <link rel='stylesheet' href='/css/style.css'>
 </head>
-<body>
+<body class='d-flex flex-column min-vh-100'>
 
-    <nav class='navbar navbar-expand-md bg-dark navbar-dark'>
-        <a class='navbar-brand' href='/'>Technology Blog</a>
+    <nav class='navbar navbar-expand-md nav-bg navbar-dark'>
+        <a class='brand' href='/'>Technology Blog</a>
 
         <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navCollapse'>
             <span class='navbar-toggler-icon'></span>
@@ -27,7 +27,7 @@
         <div class='collapse navbar-collapse' id='navCollapse'>
             <ul class='navbar-nav ml-auto'>
                 <li class='nav-item'>
-                    <a class='nav-link active' aria-current='page' href='/'>Home</a>
+                    <a class='nav-link' aria-current='page' href='/'>Home</a>
                 </li>
 
                 {{#if logged_in}}
@@ -36,7 +36,7 @@
                     <a class='nav-link' href='/profile'>User Profile</a>
                 </li>
                 <li class='nav-item'>
-                    <button class='btn btn-dark' id='logout'>Logout</button>
+                    <button class='btn logout-btn' id='logout'>Logout</button>
                 </li>
 
                 {{else}}
@@ -55,8 +55,8 @@
         {{{ body }}}
     </main>
     
-    <footer class='footer d-flex flex-column bg-dark'>
-        <p class='text-center small py-1 text-white'>Technology Blog</p>
+    <footer class='footer mt-auto bg-dark'>
+        <p class='text-center small py-3 text-white'>Technology Blog</p>
     </footer>
 
     {{#if logged_in}}

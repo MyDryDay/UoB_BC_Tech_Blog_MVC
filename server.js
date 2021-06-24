@@ -19,7 +19,7 @@ const sess = {
     secret: 'secret',
     cookie: {
         // Sets max age of user session - logs user out after 15 minutes
-        maxAge: 90000
+        maxAge: 900000
     },
     resave: false,
     rolling: true,

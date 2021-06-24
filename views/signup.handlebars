@@ -1,29 +1,33 @@
-<div class='col-md-6 text-white p-3'>
-    <h2>Signup</h2>
+<div class='row'>
+    <div class='col-md-6 text-white p-3 signup-container mx-auto'>
+        <h2 class='signup-header'>Signup</h2>
 
-    <form class='form signup-form'>
-        <div class='form-group'>
-            <label for='name-signup'>Name: </label>
-            <br>
-            <input class='form-input' type='text' id='name-signup' placeholder='Please enter your name...' />
-        </div>
+        <form class='form signup-form'>
+            <div class='form-group'>
+                <label class='input-title' for='name-signup'>Name: </label>
+                <br>
+                <input class='form-input' type='text' id='name-signup' placeholder='Please enter your name...' />
+            </div>
 
-        <div class='form-group'>
-            <label for='email-signup'>Email: </label>
-            <br>
-            <input class='form-input' type='text' id='email-signup' placeholder='Please enter a valid email address...' />
-        </div>
+            <div class='form-group'>
+                <label class='input-title' for='email-signup'>Email: </label>
+                <br>
+                <input class='form-input' type='text' id='email-signup' placeholder='Please enter a valid email address...' />
+            </div>
 
-        <div class='form-group'>
-            <label for='pass-signup'>Password: </label>
-            <br>
-            <input class='form-input' type='password' id='pass-signup' placeholder='Please enter a password...' />
-        </div>
+            <div class='form-group'>
+                <label class='input-title' for='pass-signup'>Password: </label>
+                <br>
+                <input class='form-input' type='password' id='pass-signup' placeholder='Please enter a password...' />
+            </div>
 
-        <div class='form-group'>
-            <button class='btn btn-success' type='submit' id='new-account'>Sign Up</button>
-        </div>
-    </form>
+            <div class='form-group'>
+                <button class='btn login-btn' type='submit' id='new-account'>Sign Up</button>
+            </div>
+        </form>
+    </div>
 </div>
+
+
 
 <script src='/js/signup.js'></script>

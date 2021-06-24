@@ -1,13 +1,13 @@
 {{#each posts as |post|}}
 
 <div class='row'>
-    <div class='col-md-8 p-4 bg-dark mb-4 rounded'>
+    <div class='col-md-8 p-4 post-container mb-4 mx-auto'>
         <h2>
-            <a class='text-white' href='/posts/{{post.id}}'>{{post.name}}</a>
+            <a class='title-text' href='/posts/{{post.id}}'>{{post.name}}</a>
         </h2>
 
-        <p class='text-muted'>published by {{post.user.name}} on {{format_date post.date_created}}</p>
-        <p id='home-blog-txt'>
+        <p class='author-text'>published by {{post.user.name}} on {{format_date post.date_created}}</p>
+        <p id='home-blog-txt' class='post-text'>
             {{post.description}}
         </p>
     </div>
