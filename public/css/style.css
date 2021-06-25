@@ -13,10 +13,25 @@ textarea {
     height: auto;
 }
 
+input {
+    width: 80%;
+}
+
+input::placeholder {
+    color: gray;
+}
+
 .center {
     text-align: center;
 }
 
+.custom-container {
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+/* Navbar */
 .brand {
     color: #88d9e6;
     font-weight: bold;
@@ -36,22 +51,15 @@ textarea {
     color: #f2545b !important;
 }
 
-/* Home Page */
-.post-container {
-    background-color: #1c1c1c;
-    border-radius: 10px;
-    margin-bottom: 5%;
-}
-
 .title-text {
     color: #88d9e6;
 }
 
-.author-text {
+.sub-text {
     color: #8b8bae;
 }
 
-.post-text {
+.content-text {
     color: #c5fffd;
 }
 
@@ -64,92 +72,10 @@ textarea {
 }
 
 /* Login Page */
-.login-container {
-    background-color: #1c1c1c;
-    margin-bottom: 10%;
-    border-radius: 10px;
-}
-
-.login-header {
-    color: #88d9e6;
-}
-
-.input-title {
-    color: #8b8bae;
-}
-
-.signup-text {
-    color: #c5fffd;
-}
-
 .login-btn {
     background-color: #88d9e6;
 }
 
 .login-btn:hover {
     background-color: #f2545b;
-}
-
-/* Signup Page */
-.signup-container {
-    background-color: #1c1c1c;
-    margin-bottom: 10%;
-    border-radius: 10px;
-}
-
-.signup-header {
-    color: #88d9e6;
-}
-
-/* Profile Page */
-.profile-container {
-    background-color: #1c1c1c;
-    margin-bottom: 10%;
-    border-radius: 10px;
-}
-
-.profile-header {
-    color: #88d9e6;
-}
-
-.delete-btn {
-    background-color: #f2545b;
-}
-
-.delete-btn:hover {
-    background-color: #88d9e6;
-}
-
-.comment-container {
-    background-color: #1c1c1c;
-    margin-bottom: 5%;
-    border-radius: 10px;
-}
-
-.comment-text {
-    color: #8b8bae;
-}
-
-.comment-author {
-    color: #8b8bae;
-}
-
-/* p {
-    color: black;
-} */
-
-h1, h2, h3, h4, h5, h6 {
-    color: black;
-}
-
-label {
-    color: black;
-}
-
-input {
-    width: 80%;
-}
-
-input::placeholder {
-    color: gray;
 }
