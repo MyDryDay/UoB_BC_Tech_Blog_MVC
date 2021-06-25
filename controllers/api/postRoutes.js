@@ -25,8 +25,6 @@ router.get('/:id', withAuth, async (req, res) => {
 
         const post = postData.get({ plain: true });
         // Uncomment once view is written
-        console.log(post);
-        console.log('here');
         res.render('post', {
             post,
             logged_in: req.session.logged_in

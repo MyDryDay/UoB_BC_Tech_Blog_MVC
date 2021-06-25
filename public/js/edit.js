@@ -2,7 +2,7 @@ const editHandler = async (e) => {
     e.preventDefault();
 
     const name = document.querySelector("input[name='edit-title']").value;
-    const description = document.querySelector("input[name='edit-body']").value;
+    const description = document.querySelector("textarea[name='edit-body']").value;
     const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
     const res = await fetch(`/api/posts/edit/${id}`, {

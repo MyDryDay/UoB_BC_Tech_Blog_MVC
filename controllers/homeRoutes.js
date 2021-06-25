@@ -59,8 +59,6 @@ router.get('/posts/:id', async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        console.log('here');
-        console.log(post);
         res.render('post', {
             ...post,
             logged_in: req.session.logged_in
@@ -116,7 +114,7 @@ router.get('/login', (req, res) => {
   });
 
 
-router.get('posts/edit/:id', withAuth, async (req, res) => {
+router.get('/posts/edit/:id', withAuth, async (req, res) => {
     try {
         const editPost = await Post.findByPk(req.params.id, {
             // Include user that authored the post
